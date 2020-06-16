@@ -37,7 +37,20 @@
               <p>The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world.</p>
           </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Vanilla JavaScript App</h2>
+          <p>Loading message from the API: <b id="name">...</b></p>
+        </div>
+      </div>
     </div>
+
+    <script>
+      (async function() {
+        let { text } = await( await fetch(`/api/message?name=John`)).json();
+        document.querySelector('#name').textContent = text;
+      }())
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
